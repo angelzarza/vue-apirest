@@ -3,7 +3,6 @@
     <v-app-bar
       color="#6A76AB"
       dark
-      prominent
       src="https://picsum.photos/1920/1080?random"
     >
       <template v-slot:img="{ props }">
@@ -13,27 +12,27 @@
         ></v-img>
       </template>
 
-      <v-app-bar-title>VUE APIREST</v-app-bar-title>
+      <v-app-bar-title>VUE</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      <div class="mx-2">
+        <v-btn color="green">REGISTER</v-btn>
+      </div>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <div class="mx-2">
+        <v-btn color="blue">SIGN IN</v-btn>
+      </div>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab>Tab 1</v-tab>
-          <v-tab>Tab 2</v-tab>
-          <v-tab>Tab 3</v-tab>
+          <v-tab>Firestorm</v-tab>
+          <v-tab>Javascript</v-tab>
+          <v-tab>Python</v-tab>
+          <v-tab>PHP</v-tab>
+          <v-spacer></v-spacer>
+          <v-tab style="color: red">LOCK</v-tab>
+          <v-spacer></v-spacer>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -45,3 +44,9 @@ export default {
   name: "Appbar",
 };
 </script>
+
+<style>
+.v-app-bar-title__content {
+  width: auto !important;
+}
+</style>
