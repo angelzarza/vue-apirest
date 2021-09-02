@@ -1,6 +1,7 @@
 <template>
   <v-card>
     <v-container>
+      <h3 class="title my-3">Create Account</h3>
       <validation-observer ref="observer" v-slot="{ invalid }">
         <form @submit.prevent="submit">
           <validation-provider
