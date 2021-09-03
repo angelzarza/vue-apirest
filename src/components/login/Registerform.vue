@@ -21,7 +21,7 @@
 
           <validation-provider
             v-slot="{ errors }"
-            name="Password"
+            name="password"
             ref="password"
             rules="required|min:4"
           >
@@ -57,11 +57,16 @@
           >
         </form>
       </validation-observer>
+      <v-alert elevation="9" type="error" v-if="error">{{ error }}</v-alert>
     </v-container>
   </v-card>
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
+import "firebase/auth";
+import "@/firebase/init";
+
 import { required, email, min, confirmed } from "vee-validate/dist/rules";
 import {
   extend,
@@ -104,11 +109,25 @@ export default {
     email: "",
     password: "",
     confirmed_password: "",
+    error: "",
   }),
 
   methods: {
     submit() {
       this.$refs.observer.validate();
+      this.error = "";
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((user) => {
+          this.email = "";
+          this.password = "";
+          this.confirmed_password = "";
+          console.log(user);
+        })
+        .catch((err) => {
+          this.error = err.message;
+        });
     },
     // clear() {
     //   this.name = "";

@@ -21,7 +21,7 @@
 
           <validation-provider
             v-slot="{ errors }"
-            name="Password"
+            name="password"
             ref="password"
             rules="required|min:4"
           >
@@ -48,6 +48,7 @@
               :error-messages="errors"
               placeholder="Confirm the password"
               type="password"
+              data-vv-as="password"
               required
             ></v-text-field>
           </validation-provider>
