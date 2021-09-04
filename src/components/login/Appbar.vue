@@ -15,12 +15,12 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab to="/">Firesbase</v-tab>
+          <v-tab to="/">Firebase</v-tab>
           <v-tab>Javascript</v-tab>
           <v-tab>Python</v-tab>
           <v-tab>PHP</v-tab>
           <v-spacer></v-spacer>
-          <v-tab>LOCK</v-tab>
+          <v-tab to="/lock">LOCK</v-tab>
           <v-spacer></v-spacer>
         </v-tabs>
       </template>

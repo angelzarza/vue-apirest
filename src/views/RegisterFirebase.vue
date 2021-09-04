@@ -18,13 +18,11 @@ export default {
 
 <style>
 .login-rg {
-  position: fixed;
+  position: relative;
   /* background-color: red; */
   width: 30%;
   height: auto;
   margin: 0 auto;
-  right: 0;
-  left: 0;
   margin-top: 150px;
 }
 </style>

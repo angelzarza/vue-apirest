@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-// import firestore from "firebase/app/firestore";
-// import { getAnalytics } from "firebase/analytics";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7pkF6wZ87_AjMzFdwBqhLlTuJ7Nli8CQ",
@@ -13,7 +13,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// app.firestore().settings({ timestampsInSnapshots: true });
-export default app;
-// const analytics = getAnalytics(app);
+const app = firebase.initializeApp(firebaseConfig);
+
+export default app.firestore();

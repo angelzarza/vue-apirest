@@ -23,7 +23,7 @@
             v-slot="{ errors }"
             name="password"
             ref="password"
-            rules="required|min:4"
+            rules="required|min:6"
           >
             <v-icon icon="mdi-lock-outline" color="red"
               >mdi-lock-outline</v-icon
@@ -57,14 +57,15 @@
           >
         </form>
       </validation-observer>
-      <v-alert elevation="9" type="error" v-if="error">{{ error }}</v-alert>
+      <v-alert elevation="9" type="error" class="my-3" v-if="error">{{
+        error
+      }}</v-alert>
     </v-container>
   </v-card>
 </template>
 
 <script>
 import firebase from "firebase/compat/app";
-import "firebase/auth";
 import "@/firebase/init";
 
 import { required, email, min, confirmed } from "vee-validate/dist/rules";
@@ -129,14 +130,6 @@ export default {
           this.error = err.message;
         });
     },
-    // clear() {
-    //   this.name = "";
-    //   this.phoneNumber = "";
-    //   this.email = "";
-    //   this.select = null;
-    //   this.checkbox = null;
-    //   this.$refs.observer.reset();
-    // },
   },
 };
 </script>

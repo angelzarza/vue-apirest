@@ -23,10 +23,6 @@ export default {
 </script>
 
 <style>
-html {
-  overflow: hidden !important;
-}
-
 .bg-body {
   background: rgb(2, 0, 36) !important;
   background: linear-gradient(
