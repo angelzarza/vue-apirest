@@ -10,8 +10,28 @@
       </div>
 
       <div class="mx-2">
-        <v-btn color="blue" to="/">SIGN IN</v-btn>
+        <v-btn color="blue" to="/">LOG IN</v-btn>
       </div>
+
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }" v-if="user">
+          <div class="mx-2">
+            <v-btn
+              color="black"
+              fab
+              small
+              dark
+              v-bind="attrs"
+              v-on="on"
+              @click.prevent="logout"
+              ><v-icon icon="mdi-exit-to-app" color="white"
+                >mdi-exit-to-app</v-icon
+              ></v-btn
+            >
+          </div>
+        </template>
+        <span>Sign off</span>
+      </v-tooltip>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
@@ -29,8 +49,36 @@
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
+
 export default {
   name: "Appbar",
+  data() {
+    return {
+      user: null,
+    };
+  },
+  methods: {
+    // Metodo que cierra sesión de usuario
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "Firebase" });
+        });
+    },
+  },
+  created() {
+    // Comprueba el estado de Auth para despues saber si mostrar o no el botón de sign off
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+      } else {
+        this.user = null;
+      }
+    });
+  },
 };
 </script>
 

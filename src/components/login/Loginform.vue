@@ -55,7 +55,7 @@
 
           <div>
             <v-btn class="mx-2" color="blue" type="submit" :disabled="invalid"
-              >SIGN IN</v-btn
+              >LOG IN</v-btn
             >
             <v-btn class="mx-2" color="green" to="/register">REGISTER</v-btn>
           </div>
@@ -72,6 +72,7 @@
 import firebase from "firebase/compat/app";
 import "@/firebase/init";
 
+// Reglas de validación multiples para el formulario importadas de Vee
 import { required, email, min, confirmed } from "vee-validate/dist/rules";
 import {
   extend,
@@ -118,6 +119,8 @@ export default {
   }),
 
   methods: {
+    // Enviamos el formulario comprobando las reglas de validación y verificando que
+    // exista el usuario en la db.
     submit() {
       this.$refs.observer.validate();
       this.error = "";

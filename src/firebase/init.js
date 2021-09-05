@@ -2,6 +2,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
+// Configuración por defecto que proporciona firebase(No tocar)
 const firebaseConfig = {
   apiKey: "AIzaSyD7pkF6wZ87_AjMzFdwBqhLlTuJ7Nli8CQ",
   authDomain: "vue-apirest-a0500.firebaseapp.com",
