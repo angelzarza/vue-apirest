@@ -7,12 +7,11 @@ import firebase from "firebase/compat/app";
 
 Vue.config.productionTip = false;
 
-// Comprobamos y creamos una sola instancia para el componente
 let app = null;
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
-    app = new Vue({
+    new Vue({
       router,
       store,
       vuetify,

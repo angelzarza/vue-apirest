@@ -68,7 +68,6 @@
 import firebase from "firebase/compat/app";
 import "@/firebase/init";
 
-// Reglas de validación multiples para el formulario importadas de Vee
 import { required, email, min, confirmed } from "vee-validate/dist/rules";
 import {
   extend,
@@ -115,8 +114,6 @@ export default {
   }),
 
   methods: {
-    // Enviamos el formulario comprobando las reglas de validación y verificando que
-    // se creo el usuario en la db.
     submit() {
       this.$refs.observer.validate();
       this.error = "";

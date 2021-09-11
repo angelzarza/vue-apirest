@@ -38,7 +38,6 @@ const router = new VueRouter({
   routes,
 });
 
-// Comprobación para que no nos cree multiples usuarios.
 router.beforeEach((to, from, next) => {
   if (to.matched.some((ruta) => ruta.meta.requiresAuth)) {
     const user = firebase.auth().currentUser;
